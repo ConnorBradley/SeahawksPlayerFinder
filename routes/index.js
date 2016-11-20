@@ -54,8 +54,13 @@ router.post('/addplayer', function(req, res, next) {
 });
 
 router.post('/voteplayer', function(req, res, next) {
-
+  var playerDetails = new Player();
+  playerDetails.findByNum(res, playerDetails, req.body.number, function() {
+    console.log(playerDetails);
+    playerDetails.VotePlayer(playerDetails, req.body.vote, function() {
+        res.render('index', {items: playerDetails});
+    });
+  });
 });
-
 
 module.exports = router;

@@ -58,7 +58,7 @@ Player.prototype.AddPlayer = function(newplayer) {
   });
 };
 
-Player.prototype.findByNum = function(obj, num, cb ) {
+Player.prototype.findByNum = function(res, obj, num, cb ) {
   mongo.connect(url, function(err, db) {
       var query = { 'number' : num };
       //selects top 1 from players table that has number = num, then asigns the player details to the variables passed in.
@@ -120,21 +120,24 @@ Player.prototype.findByName = function(res, obj, name, cb ) {
         });
     });
 };
-Player.prototype.VotePlayer = function(positiveRating) {
+Player.prototype.VotePlayer = function(obj, positiveRating, cb) {
   //TODO: This isn't working yet, get the Select working first.
-  var isUpvote = false;
-  var player;
-  var votes;
-  isUpvote = req.query.isUpvote;
-  player = req.query.player;
-
   mongo.connect(url, function (err, db) {
       assert.equal(null, err);
-      var cursor = db.collection('players').find({number : player});
-      votes = cursor['votes'];
-      console.log('Player has ' + votes);
-      votes++;
-      //db.collection('players').updateOne({"number": player}, {$set: uStudent}, function (err, result) {
-      //});
+      console.log('Player has ' + obj.votes);
+      if (positiveRating==='upvote') {
+        obj.votes++;
+      } else {
+        obj.votes--;
+      }
+      db.collection('players').updateOne({'num' : obj.num}, {$set: { 'votes' : obj.votes}}, function (err, result) {
+        if(err) {
+          console.log(err);
+        }
+        else {
+          console.log('updated votes');
+        }
+        cb();
+      });
   });
 };

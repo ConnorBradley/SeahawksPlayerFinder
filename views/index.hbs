@@ -65,8 +65,8 @@
   <form action="/search/name">
       <h3>Get Data by name</h3>
       <div class="input">
-        <label for="Number">name</label>
-        <input type="text" id="number" name="number">
+        <label for="Name">name</label>
+        <input type="text" id="name" name="name">
         <button type="text">LOAD DATA</button>
       </div>
       <div>
@@ -87,10 +87,12 @@
   </form>
 </section>
 <section class="votePlayer">
-  <form action="/voteplayer">
+  <form action="/voteplayer" method="post">
     <h3> Vote Player </h3>
     <div class=input>
       <label for="Number">Number</label>
       <input type="text" id="number" name="number">
-      <button type="text"> Upvote </button>
+      <button type="text" name="vote" value="upvote"> Upvote </button>
+      <button type="text" name="vote" value="downvote"> Downvote </button>
     </div>
+  </section>
