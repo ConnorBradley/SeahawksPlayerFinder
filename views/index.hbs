@@ -40,14 +40,14 @@
 </section>
 <section class="getplayer">
   <form action="/search/num">
-      <h3>Get Data</h3>
+      <h3>Get Data by num</h3>
       <div class="input">
         <label for="Number">Number</label>
         <input type="text" id="number" name="number">
         <button type="text">LOAD DATA</button>
       </div>
       <div>
-          {{# each items }}
+          {{# items }}
             <article class="items">
                 <div>Name: {{ this.name }}</div>
                 <div>Number: {{ this.number }}</div>
@@ -59,7 +59,30 @@
                 <div>Experience: {{ this.experience }}</div>
                 <div>Votes: {{ this.votes }} </div>
             </article>
-          {{/each}}
+          {{/items}}
+      </div>
+  </form>
+  <form action="/search/name">
+      <h3>Get Data by name</h3>
+      <div class="input">
+        <label for="Number">name</label>
+        <input type="text" id="number" name="number">
+        <button type="text">LOAD DATA</button>
+      </div>
+      <div>
+          {{# items }}
+            <article class="items">
+                <div>Name: {{ this.name }}</div>
+                <div>Number: {{ this.number }}</div>
+                <div>Age: {{ this.age }}</div>
+                <div>Position: {{ this.position }}</div>
+                <div>College: {{ this.college }}</div>
+                <div>Height: {{ this.height }}</div>
+                <div>Weight: {{ this.weight }}</div>
+                <div>Experience: {{ this.experience }}</div>
+                <div>Votes: {{ this.votes }} </div>
+            </article>
+          {{/items}}
       </div>
   </form>
 </section>
