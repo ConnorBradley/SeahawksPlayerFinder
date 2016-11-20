@@ -1,0 +1,73 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+<section class="insert">
+    <h3>Insert Data</h3>
+    <form action="/addplayer" method="post">
+        <div class="input">
+            <label for="number">Number</label>
+            <input type="text" id="number" name="number">
+        </div>
+        <div class="input">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div class="input">
+            <label for="age">Age</label>
+            <input type="text" id="age" name="age">
+        </div>
+        <div class="input">
+            <label for="position">Position</label>
+            <input type="text" id="position" name="position">
+        </div>
+        <div class="input">
+            <label for="college">College</label>
+            <input type="text" id="college" name="college">
+        </div>
+        <div class="input">
+            <label for="height">Height</label>
+            <input type="text" id="height" name="height">
+        </div>
+        <div class="input">
+            <label for="weight">Weight</label>
+            <input type="text" id="weight" name="weight">
+        </div>
+        <div class="input">
+            <label for="experience">Experience</label>
+            <input type="text" id="experience" name="experience">
+        </div>
+        <button type="submit">INSERT</button>
+    </form>
+</section>
+<section class="getplayer">
+  <form action="/search/num">
+      <h3>Get Data</h3>
+      <div class="input">
+        <label for="Number">Number</label>
+        <input type="text" id="number" name="number">
+        <button type="text">LOAD DATA</button>
+      </div>
+      <div>
+          {{# each items }}
+            <article class="items">
+                <div>Name: {{ this.name }}</div>
+                <div>Number: {{ this.number }}</div>
+                <div>Age: {{ this.age }}</div>
+                <div>Position: {{ this.position }}</div>
+                <div>College: {{ this.college }}</div>
+                <div>Height: {{ this.height }}</div>
+                <div>Weight: {{ this.weight }}</div>
+                <div>Experience: {{ this.experience }}</div>
+                <div>Votes: {{ this.votes }} </div>
+            </article>
+          {{/each}}
+      </div>
+  </form>
+</section>
+<section class="votePlayer">
+  <form action="/voteplayer">
+    <h3> Vote Player </h3>
+    <div class=input>
+      <label for="Number">Number</label>
+      <input type="text" id="number" name="number">
+      <button type="text"> Upvote </button>
+    </div>
