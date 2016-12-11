@@ -1,98 +1,139 @@
 <h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
-<section class="insert">
-    <h3>Insert Data</h3>
-    <form action="/addplayer" method="post">
-        <div class="input">
-            <label for="number">Number</label>
-            <input type="text" id="number" name="number">
-        </div>
-        <div class="input">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name">
-        </div>
-        <div class="input">
-            <label for="age">Age</label>
-            <input type="text" id="age" name="age">
-        </div>
-        <div class="input">
-            <label for="position">Position</label>
-            <input type="text" id="position" name="position">
-        </div>
-        <div class="input">
-            <label for="college">College</label>
-            <input type="text" id="college" name="college">
-        </div>
-        <div class="input">
-            <label for="height">Height</label>
-            <input type="text" id="height" name="height">
-        </div>
-        <div class="input">
-            <label for="weight">Weight</label>
-            <input type="text" id="weight" name="weight">
-        </div>
-        <div class="input">
-            <label for="experience">Experience</label>
-            <input type="text" id="experience" name="experience">
-        </div>
-        <button type="submit">INSERT</button>
-    </form>
-</section>
-<section class="getplayer">
-  <form action="/search/num">
-      <h3>Get Data by num</h3>
-      <div class="input">
-        <label for="Number">Number</label>
-        <input type="text" id="number" name="number">
-        <button type="text">LOAD DATA</button>
-      </div>
-      <div>
-          {{# items }}
-            <article class="items">
-                <div>Name: {{ this.name }}</div>
-                <div>Number: {{ this.number }}</div>
-                <div>Age: {{ this.age }}</div>
-                <div>Position: {{ this.position }}</div>
-                <div>College: {{ this.college }}</div>
-                <div>Height: {{ this.height }}</div>
-                <div>Weight: {{ this.weight }}</div>
-                <div>Experience: {{ this.experience }}</div>
-                <div>Votes: {{ this.votes }} </div>
-            </article>
-          {{/items}}
-      </div>
-  </form>
-  <form action="/search/name">
-      <h3>Get Data by name</h3>
-      <div class="input">
-        <label for="Name">name</label>
-        <input type="text" id="name" name="name">
-        <button type="text">LOAD DATA</button>
-      </div>
-      <div>
-          {{# items }}
-            <article class="items">
-                <div>Name: {{ this.name }}</div>
-                <div>Number: {{ this.number }}</div>
-                <div>Age: {{ this.age }}</div>
-                <div>Position: {{ this.position }}</div>
-                <div>College: {{ this.college }}</div>
-                <div>Height: {{ this.height }}</div>
-                <div>Weight: {{ this.weight }}</div>
-                <div>Experience: {{ this.experience }}</div>
-                <div>Votes: {{ this.votes }} </div>
-            </article>
-          {{/items}}
-      </div>
-  </form>
-</section>
-<section class="votePlayer">
-  <form action="/voteplayer" method="post">
-    <h3> Vote Player </h3>
-    <div class=input>
-      <label for="Number">Number</label>
-      <input type="text" id="number" name="number">
-      <button type="text" name="vote" value="upvote"> Upvote </button>
-      <button type="text" name="vote" value="downvote"> Downvote </button>
-    </div>
-  </section>
+<table>
+    <tr>
+        <th> Add Player </th>
+        <th> Select Player </th>
+        <th> Player Comments </th>
+        <th> Vote Player </th>
+    </tr>
+    <td>
+        <section class="insert">
+            <h3>Insert Data</h3>
+            <form action="/addplayer" method="post">
+                <div class="input">
+                    <label for="number">Number</label>
+                    <input type="text" id="number" name="number">
+                </div>
+                <div class="input">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <div class="input">
+                    <label for="age">Age</label>
+                    <input type="text" id="age" name="age">
+                </div>
+                <div class="input">
+                    <label for="position">Position</label>
+                    <input type="text" id="position" name="position">
+                </div>
+                <div class="input">
+                    <label for="college">College</label>
+                    <input type="text" id="college" name="college">
+                </div>
+                <div class="input">
+                    <label for="height">Height</label>
+                    <input type="text" id="height" name="height">
+                </div>
+                <div class="input">
+                    <label for="weight">Weight</label>
+                    <input type="text" id="weight" name="weight">
+                </div>
+                <div class="input">
+                    <label for="experience">Experience</label>
+                    <input type="text" id="experience" name="experience">
+                </div>
+                <button type="submit">INSERT</button>
+            </form>
+        </section>
+    </td>
+    <td>
+        <section class="getplayer" class="col-md-4">
+            <form action="/search/num">
+                <h3>Get Data by num</h3>
+                <div class="input">
+                    <label for="Number">Number</label>
+                    <input type="text" id="number" name="number">
+                    <button type="text">LOAD DATA</button>
+                </div>
+                <div>
+                    {{# items }}
+                        <article class="items">
+                            <div>Name: {{ this.name }}</div>
+                            <div>Number: {{ this.number }}</div>
+                            <div>Age: {{ this.age }}</div>
+                            <div>Position: {{ this.position }}</div>
+                            <div>College: {{ this.college }}</div>
+                            <div>Height: {{ this.height }}</div>
+                            <div>Weight: {{ this.weight }}</div>
+                            <div>Experience: {{ this.experience }}</div>
+                            <div>Votes: {{ this.votes }} </div>
+                        </article>
+                        {{/items}}
+                </div>
+            </form>
+            <form action="/search/name">
+                <h3>Get Data by name</h3>
+                <div class="input">
+                    <label for="Name">name</label>
+                    <input type="text" id="name" name="name">
+                    <button type="text">LOAD DATA</button>
+                </div>
+                <div>
+                    {{# items }}
+                        <article class="items">
+                            <div>Name: {{ this.name }}</div>
+                            <div>Number: {{ this.number }}</div>
+                            <div>Age: {{ this.age }}</div>
+                            <div>Position: {{ this.position }}</div>
+                            <div>College: {{ this.college }}</div>
+                            <div>Height: {{ this.height }}</div>
+                            <div>Weight: {{ this.weight }}</div>
+                            <div>Experience: {{ this.experience }}</div>
+                            <div>Votes: {{ this.votes }} </div>
+                        </article>
+                        {{/items}}
+                </div>
+            </form>
+        </section>
+    </td>
+    <td>
+        <section class="comments">
+            <form action="/getcomments">
+                <h3> Comments </h3>
+                <div class="input">
+                    <label for="Number">Number</label>
+                    <input type="text" id="number" name="number">
+                    <button type="text">GET COMMENTS</button>
+                </div>
+                <div class="comments">
+                    {{# each comments}}
+                        <article class="comments">
+                            <div> Comment: {{ this.messaage }} </div>
+                        </article>
+                        {{/each}}
+                </div>
+            </form>
+            <form action="/addcomment" method="post">
+                <h3> Add Comment </h3>
+                <div class="input">
+                    <label for="Number"> Number </label>
+                    <input type="text" id="number" name="number">
+                    <input type="text" id="message" name="message">
+                    <button type="submit"> ADD COMMENT</button>
+                </div>
+            </form>
+            </sections>
+    </td>
+    <td>
+        <section class="votePlayer">
+            <form action="/voteplayer" method="post">
+                <h3> Vote Player </h3>
+                <div class=input>
+                    <label for="Number">Number</label>
+                    <input type="text" id="number" name="number">
+                    <button type="text" name="vote" value="upvote"> Upvote </button>
+                    <button type="text" name="vote" value="downvote"> Downvote </button>
+                </div>
+        </section>
+    </td>
+</table>
